@@ -89,11 +89,13 @@ graph TB
     G -.->|Telemetry| N
     H -.->|Telemetry| N
 
-    style A fill:#e1f5ff
-    style D fill:#ffe1f5
-    style G fill:#f5ffe1
-    style L fill:#fffbe1
-    style J fill:#f5e1ff
+    style A fill:#ddf4ff,stroke:#0969DA,stroke-width:2px
+    style D fill:#fbefff,stroke:#8250df,stroke-width:2px
+    style G fill:#dafbe1,stroke:#1a7f37,stroke-width:2px
+    style L fill:#fff8c5,stroke:#fb8500,stroke-width:2px
+    style J fill:#eaeef2,stroke:#57606a,stroke-width:2px
+    style M fill:#ffebe9,stroke:#cf222e,stroke-width:2px
+    style N fill:#f6f8fa,stroke:#656d76,stroke-width:2px
 ```
 
 ### Component Interaction Flow
@@ -549,10 +551,10 @@ flowchart TD
     S --> T[Cache in Service Worker]
     T --> U[User downloads to Photos]
 
-    style A fill:#e1f5ff
-    style I fill:#fffbe1
-    style O fill:#f5e1ff
-    style U fill:#e1ffe1
+    style A fill:#ddf4ff,stroke:#0969DA,stroke-width:2px
+    style I fill:#fff8c5,stroke:#fb8500,stroke-width:2px
+    style O fill:#eaeef2,stroke:#57606a,stroke-width:2px
+    style U fill:#dafbe1,stroke:#1a7f37,stroke-width:2px
 ```
 
 ### 2. Offline Mode Flow
@@ -574,9 +576,9 @@ flowchart TD
     L -->|No| M[Show 'Connect to internet' message]
     L -->|Yes| N[Proceed with generation]
 
-    style C fill:#ffe1f5
-    style G fill:#e1ffe1
-    style M fill:#ffe1e1
+    style C fill:#fbefff,stroke:#8250df,stroke-width:2px
+    style G fill:#dafbe1,stroke:#1a7f37,stroke-width:2px
+    style M fill:#ffebe9,stroke:#cf222e,stroke-width:2px
 ```
 
 ---
