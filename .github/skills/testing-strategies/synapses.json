@@ -35,6 +35,13 @@
       "strength": 0.8,
       "bidirectional": true,
       "reason": "Automated accessibility testing validates WCAG compliance"
+    },
+    {
+      "target": ".github/skills/distribution-security/SKILL.md",
+      "type": "informed-by",
+      "strength": 0.75,
+      "bidirectional": true,
+      "reason": "Test files require production-grade security practices"
     }
   ],
   "triggers": [

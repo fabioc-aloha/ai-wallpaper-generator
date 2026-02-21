@@ -22,16 +22,26 @@
             "type": "supports",
             "strength": 0.7,
             "reason": "Extension packaging must follow defense-in-depth patterns"
+        },
+        {
+            "target": ".github/skills/testing-strategies/SKILL.md",
+            "type": "informs",
+            "strength": 0.75,
+            "reason": "Test files require production-grade security practices"
         }
     ],
     "when": [
         "User packages software for distribution",
         "User needs PII protection or secrets scanning",
-        "User prepares extension for marketplace publishing"
+        "User prepares extension for marketplace publishing",
+        "GitHub push protection blocks a commit with secrets",
+        "Test files contain hardcoded API tokens or credentials"
     ],
     "yields": [
         "Defense-in-depth security assessment",
         "PII protection validation",
-        "Secure packaging configuration"
+        "Secure packaging configuration",
+        "GitHub push protection remediation guidance",
+        "Environment variable validation patterns"
     ]
 }

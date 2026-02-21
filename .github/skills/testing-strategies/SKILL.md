@@ -80,6 +80,53 @@ test('should calculate discount when order exceeds $100', () => {
 | Trivial getters/setters | No logic to break | Only if they have side effects |
 | Generated code | Changes on regeneration | Test the generator, not the output |
 
+## Test File Security
+
+Test files are part of your repository's distribution—they get indexed by search engines (public repos), copied by developers learning from your code, and included in package distributions.
+
+| Anti-pattern | Risk | Secure Alternative |
+| ------------ | ---- | ------------------ |
+| `auth: process.env.TOKEN \|\| 'r8_abc123...'` | Hardcoded secret triggers GitHub push protection | Validate env var exists, fail with clear error |
+| `const apiKey = "test-key-1234-real-key"` | Accidentally commits production credentials | Use environment variables only |
+| `// API endpoint: https://api.example.com?key=sk-live-...` | Leaks secrets in comments | Use placeholders: `?key=YOUR_KEY_HERE` |
+| No `.env.example` for test setup | Developers hardcode to get tests working | Provide template with dummy values |
+
+### Secure Pattern: Environment Variable Validation
+
+**Anti-pattern** (triggers GitHub push protection):
+```javascript
+const replicate = new Replicate({ 
+  auth: process.env.TOKEN || 'r8_hardcoded_fallback' 
+});
+```
+
+**Secure pattern** (explicit validation):
+```javascript
+if (!process.env.REPLICATE_API_TOKEN) {
+  console.error('REPLICATE_API_TOKEN environment variable is required');
+  console.error('See .env.example for setup instructions');
+  process.exit(1);
+}
+const replicate = new Replicate({ auth: process.env.REPLICATE_API_TOKEN });
+```
+
+**Benefits**:
+- Passes GitHub push protection (no hardcoded secrets)
+- Forces proper test configuration (better reliability)
+- Makes requirements explicit (better DX)
+- Works in CI/CD (clear failure messages)
+
+### Recovery from Push Protection Block
+
+If GitHub blocks your push due to secrets in test files:
+
+1. **Remove secrets locally**: Edit test files to use environment variables
+2. **Amend the commit**: `git commit --amend --no-edit` (rewrites history locally)
+3. **Verify clean**: `git show HEAD` should contain no secrets
+4. **Retry push**: `git push origin main`
+
+**Rule**: Never create a second "oops, remove secrets" commit. Use `--amend` to keep secrets out of history entirely.
+
 ## Test Quality Signals
 
 | Good Test | Bad Test |
