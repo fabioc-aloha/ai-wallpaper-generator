@@ -3,7 +3,7 @@ import { DefaultAzureCredential } from '@azure/identity';
 
 let cachedApiKey: string | null = null;
 
-export async function getReplicateApiKey(): Promise&lt;string&gt; {
+export async function getReplicateApiKey(): Promise<string> {
 	// Return cached key if available
 	if (cachedApiKey) {
 		return cachedApiKey;

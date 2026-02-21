@@ -7,39 +7,46 @@ import Replicate from 'replicate';
 // Request validation schema
 const GenerateRequestSchema = z.object({
 	prompt: z.string().min(3).max(500),
-	width: z.number().int().min(512).max(2048).default(1179),
-	height: z.number().int().min(512).max(2048).default(2556)
+	aspectRatio: z.enum(['9:16', '16:9', '1:1']).default('9:16')
 });
+
+// AI Model configuration
+const AI_MODEL = process.env.AI_MODEL || 'black-forest-labs/flux-pro';
+const GENERATION_TIMEOUT = 30000; // 30 seconds
 
 export async function generate(
 	request: HttpRequest,
 	context: InvocationContext
-): Promise&lt;HttpResponseInit&gt; {
+): Promise<HttpResponseInit> {
 	const startTime = Date.now();
 
 	try {
 		// Parse and validate request body
 		const body = await request.json();
-		const { prompt, width, height } = GenerateRequestSchema.parse(body);
+		const { prompt, aspectRatio } = GenerateRequestSchema.parse(body);
 
-		context.log(`Generating wallpaper: "${prompt}" (${width}x${height})`);
+		context.log(`Generating wallpaper: "${prompt}" (${aspectRatio})`);
 
 		// Get Replicate API key from Key Vault
 		const apiKey = await getReplicateApiKey();
 		const replicate = new Replicate({ auth: apiKey });
 
-		// Run prediction
-		const output = await replicate.run('black-forest-labs/flux-1.1-pro', {
-			input: {
-				prompt,
-				width,
-				height,
-				output_format: 'png',
-				output_quality: 100,
-				safety_tolerance: 2,
-				prompt_upsampling: true
-			}
-		}) as unknown;
+		// Run prediction with timeout protection
+		const output = await Promise.race([
+			replicate.run(AI_MODEL as `${string}/${string}`, {
+				input: {
+					prompt,
+					aspect_ratio: aspectRatio,
+					output_format: 'png',
+					guidance: 3,
+					steps: 25,
+					safety_tolerance: 2
+				}
+			}),
+			new Promise((_, reject) =>
+				setTimeout(() => reject(new Error('Generation timeout after 30s')), GENERATION_TIMEOUT)
+			)
+		]) as unknown;
 
 		// Extract image URL from output
 		const imageUrl = Array.isArray(output) ? output[0] : output;
@@ -67,7 +74,7 @@ export async function generate(
 				imageUrl: blobUrl,
 				metadata: {
 					prompt,
-					modelUsed: 'flux-1.1-pro',
+					modelUsed: AI_MODEL,
 					generationTime
 				}
 			}

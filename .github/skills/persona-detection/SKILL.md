@@ -33,7 +33,7 @@ Detection stops at the first confident match. Lower priorities only run if highe
 
 ---
 
-## Available Personas (as of v5.9.3)
+## Available Personas (as of v5.6.8)
 
 developer, academic, researcher, technical-writer, architect, data-engineer, devops, content-creator, fiction-writer, **game-developer**, project-manager, security, student, job-seeker, presenter, power-user
 

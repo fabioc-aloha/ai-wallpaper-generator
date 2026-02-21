@@ -12,7 +12,13 @@ function createWallpaperStore() {
 		add: (wallpaper: Wallpaper) =&gt; {
 			update((wallpapers) =&gt; {
 				const updated = [wallpaper, ...wallpapers].slice(0, MAX_STORED);
-				localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+				try {
+					localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+				} catch (error) {
+					// Quota exceeded or private browsing mode
+					console.warn('Failed to save to localStorage:', error);
+					// Continue with in-memory state
+				}
 				return updated;
 			});
 		},

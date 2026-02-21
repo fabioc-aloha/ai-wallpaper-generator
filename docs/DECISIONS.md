@@ -63,17 +63,30 @@
 
 **Your Replicate subscription** can use multiple models.
 
-| Model | Speed | Quality | Cost/Wallpaper | Best For |
-|-------|-------|---------|----------------|----------|
-| **flux-1.1-pro** | 20-25s | ⭐⭐⭐⭐⭐ | $0.0045 | Final wallpapers |
-| **sdxl** | 10-15s | ⭐⭐⭐⭐ | $0.0010 | Quick previews, testing |
-| **ideogram-v2** | 15-20s | ⭐⭐⭐⭐ | $0.0030 | Text + graphics |
+**✅ Validated Through Testing** (February 21, 2026)
 
-**Recommendation**:
-- ✅ Start with **flux-1.1-pro** only (best quality)
-- 🎯 Add **sdxl** for preview mode in Phase 2 (if you want faster iterations)
+| Model | Speed | Quality | Cost/Image | Best For | Typography |
+|-------|-------|---------|------------|----------|------------|
+| **flux-1.1-pro** | 9-10s | ⭐⭐⭐⭐⭐ | $0.04 | Photorealistic scenes | ❌ Poor |
+| **flux-pro** | 5-6s | ⭐⭐⭐⭐⭐ | $0.05 | Best photorealism | ❌ Poor |
+| **ideogram-v2** | 15-20s | ⭐⭐⭐⭐ | $0.08 | Text + graphics | ✅ Excellent |
+| **nano-banana-pro** | ~15s | ⭐⭐⭐⭐ | $0.025 | Face consistency | 🟡 Moderate |
 
-**Decision**: `[✓] flux-1.1-pro` (recommended)
+**🔬 Critical Finding: Typography Limitation**
+
+All Flux models (including Pro and 1.1 Pro) **struggle with readable text**, even with detailed specifications.
+
+**Impact on Wallpaper Strategy**:
+- ✅ **DO**: Generate pure visual content (landscapes, abstract art, patterns)
+- ❌ **AVOID**: Text overlays, typography-heavy designs
+- 🎯 **Hybrid Approach**: Generate background, add text in post-processing if needed
+
+**Recommendation for Production**:
+- ✅ **Flux Pro** ($0.05) - Best photorealistic quality for wallpapers WITHOUT text
+- ✅ **Ideogram v2** ($0.08) - ONLY when text is absolutely critical (rare for wallpapers)
+- 🎯 **Keep prompts focused on visual elements**: "neon cityscape", "abstract waves", "cosmic nebula" (NO "text saying...")
+
+**Decision**: `[✓] flux-pro` (recommended for wallpapers)
 
 ---
 

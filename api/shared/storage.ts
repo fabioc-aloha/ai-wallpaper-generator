@@ -4,7 +4,7 @@ import { DefaultAzureCredential } from '@azure/identity';
 export async function uploadToBlob(
 	data: Buffer,
 	fileName: string
-): Promise&lt;string&gt; {
+): Promise<string> {
 	const accountName = process.env.STORAGE_ACCOUNT_NAME;
 	const containerName = process.env.STORAGE_CONTAINER_NAME || 'wallpapers';
 

@@ -1,6 +1,15 @@
 {
   "routes": [
     {
+      "route": "/api/generate",
+      "allowedRoles": [
+        "anonymous"
+      ],
+      "methods": [
+        "POST"
+      ]
+    },
+    {
       "route": "/api/*",
       "allowedRoles": [
         "anonymous"
@@ -16,7 +25,8 @@
   "globalHeaders": {
     "X-Content-Type-Options": "nosniff",
     "X-Frame-Options": "DENY",
-    "Referrer-Policy": "strict-origin-when-cross-origin"
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Content-Security-Policy": "default-src 'self'; img-src 'self' data: https://replicate.delivery https://*.blob.core.windows.net; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' /api/*;"
   },
   "mimeTypes": {
     ".json": "application/json",
@@ -26,5 +36,15 @@
   },
   "platform": {
     "apiRuntime": "node:20"
+  },
+  "cors": {
+    "allowedOrigins": [
+      "*"
+    ],
+    "allowedMethods": [
+      "GET",
+      "POST",
+      "OPTIONS"
+    ]
   }
 }

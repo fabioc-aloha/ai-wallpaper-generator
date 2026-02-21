@@ -34,13 +34,17 @@
 		error = '';
 
 		try {
+			// Sanitize input
+			const sanitizedPrompt = prompt.trim()
+				.replace(/[<>]/g, '') // Remove HTML chars
+				.slice(0, 500); // Enforce max length
+
 			const response = await fetch('/api/generate', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({
-					prompt: prompt.trim(),
-					width: 1179,
-					height: 2556
+					prompt: sanitizedPrompt,
+					aspectRatio: '9:16'
 				})
 			});
 
@@ -51,7 +55,7 @@
 			const data = await response.json();
 			currentWallpaper = {
 				id: crypto.randomUUID(),
-				prompt: prompt.trim(),
+				prompt: sanitizedPrompt,
 				imageUrl: data.imageUrl,
 				createdAt: new Date().toISOString()
 			};

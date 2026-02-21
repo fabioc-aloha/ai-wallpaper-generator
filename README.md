@@ -46,32 +46,72 @@
 
 ---
 
+## 🎨 Model Comparison
+
+**Banner Generation Tests** (February 21, 2026)
+
+We tested multiple AI models with ultra-detailed prompts to compare quality:
+
+| Model | Generation Time | Cost | Photorealism | Typography | Best Use Case |
+|-------|----------------|------|--------------|------------|---------------|
+| **Flux Pro** | 5-6s | $0.05 | ⭐⭐⭐⭐⭐ Excellent | ❌ Poor | Wallpapers (pure imagery) |
+| **Flux 1.1 Pro** | 9-10s | $0.04 | ⭐⭐⭐⭐⭐ Excellent | ❌ Poor | Photorealistic scenes |
+| **Ideogram v2** | 15-20s | $0.08 | ⭐⭐⭐⭐ Good | ✅ Excellent | Marketing banners with text |
+| **Google Imagen 3** | ~15s | $0.025 | ⭐⭐⭐⭐ Good | 🟡 Moderate | Face consistency |
+
+**Key Insight**: Even with 5,500-character hyper-detailed prompts specifying exact fonts, colors, and rendering requirements, **AI models struggle with readable typography**. For wallpaper generation, focus on pure visual content without text overlays.
+
+**Production Choice**: Using **Flux Pro** for best photorealistic quality at reasonable cost.
+
+---
+
 ## 💰 Cost Estimate
 
 | Phase | Users | Wallpapers/Month | Monthly Cost |
 |-------|-------|------------------|--------------|
-| MVP | 1 | 200 | $1.02 |
-| Enhanced | 1 | 500 | $2.61 |
-| Commercial | 100 | 5,000 | $242.65 |
+| MVP | 1 | 200 | $10.12 |
+| Enhanced | 1 | 500 | $25.10 |
+| Commercial | 100 | 5,000 | $260.00 |
 
-**Breakdown (MVP)**:
-- Replicate API: $0.90
+**Breakdown (MVP)** (using Flux Pro @ $0.05/wallpaper):
+- Replicate API: $10.00 (200 wallpapers × $0.05)
 - Azure Storage: $0.02
 - Azure Functions: $0.08
 - Key Vault: $0.02
 - Static Web Apps: Free
 - Application Insights: Free tier
 
+**Note**: Cost is based on empirical testing with Flux Pro model. See [docs/AI-MODEL-GUIDE.md](docs/AI-MODEL-GUIDE.md) for detailed model comparison.
+
 ---
 
 ## 🚀 Quick Start
 
+### 0. Local Development (Start Here!)
+Run the app locally before deploying to Azure:
+
+**5-Minute Setup**:
+```powershell
+# Install dependencies
+cd api && npm install
+cd ../frontend && npm install
+
+# Configure Replicate API token in api/local.settings.json
+# Start backend: cd api && npm start
+# Start frontend: cd frontend && npm run dev
+# Open: http://localhost:5173
+```
+
+Full guide: [docs/LOCAL-DEVELOPMENT.md](docs/LOCAL-DEVELOPMENT.md)
+
+---
+
 ### 1. Make Decisions
 Read [docs/DECISIONS.md](docs/DECISIONS.md) and fill out your choices:
-- Framework (SvelteKit vs React)
-- MVP scope (minimal vs enhanced)
-- Database (LocalStorage vs Table Storage)
-- Timeline and budget constraints
+- Framework (SvelteKit vs React) ✅ *Decision: SvelteKit*
+- MVP scope (minimal vs enhanced) ✅ *Decision: Minimal MVP*
+- Database (LocalStorage vs Table Storage) ✅ *Decision: LocalStorage only*
+- AI Model (Flux Pro vs alternatives) ✅ *Decision: Flux Pro*
 
 ### 2. Set Up Azure Infrastructure
 Follow [docs/AZURE-SETUP.md](docs/AZURE-SETUP.md) to deploy:
