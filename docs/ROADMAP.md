@@ -10,6 +10,38 @@
 ## Roadmap Overview
 
 ```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#dafbe1',
+    'primaryTextColor': '#1f2328',
+    'primaryBorderColor': '#1a7f37',
+    'lineColor': '#d0d7de',
+    'secondaryColor': '#ddf4ff',
+    'tertiaryColor': '#fbefff',
+    'background': '#ffffff',
+    'mainBkg': '#ffffff',
+    'secondBkg': '#f6f8fa',
+    'gridColor': '#e1e4e8',
+    'doneTaskBkgColor': '#dafbe1',
+    'doneTaskBorderColor': '#1a7f37',
+    'activeTaskBkgColor': '#fff8c5',
+    'activeTaskBorderColor': '#fb8500',
+    'taskBkgColor': '#ddf4ff',
+    'taskBorderColor': '#0969DA',
+    'critBkgColor': '#ffebe9',
+    'critBorderColor': '#cf222e'
+  },
+  'gantt': {
+    'barHeight': 40,
+    'barGap': 8,
+    'topPadding': 50,
+    'leftPadding': 150,
+    'gridLineStartPadding': 150,
+    'fontSize': 12,
+    'numberSectionStyles': 3
+  }
+}%%
 gantt
     title AI Wallpaper App Development Phases
     dateFormat  YYYY-MM-DD
