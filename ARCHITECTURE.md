@@ -40,6 +40,7 @@ A mobile-first Progressive Web App for generating high-quality AI wallpapers opt
 ### High-Level Architecture
 
 ```mermaid
+%%{init: {'theme':'base', 'themeVariables': {'primaryColor':'#ddf4ff','primaryTextColor':'#1f2328','primaryBorderColor':'#0969DA','lineColor':'#57606a','secondaryColor':'#fbefff','tertiaryColor':'#dafbe1','background':'#ffffff','mainBkg':'#f6f8fa','secondBkg':'#ffffff','clusterBkg':'#f6f8fa','clusterBorder':'#d0d7de','edgeLabelBackground':'#ffffff','nodeTextColor':'#1f2328'}}}%%
 graph TB
     subgraph "Client Layer"
         A[iPhone Safari PWA]
@@ -89,13 +90,21 @@ graph TB
     G -.->|Telemetry| N
     H -.->|Telemetry| N
 
-    style A fill:#ddf4ff,stroke:#0969DA,stroke-width:2px
-    style D fill:#fbefff,stroke:#8250df,stroke-width:2px
-    style G fill:#dafbe1,stroke:#1a7f37,stroke-width:2px
-    style L fill:#fff8c5,stroke:#fb8500,stroke-width:2px
-    style J fill:#eaeef2,stroke:#57606a,stroke-width:2px
-    style M fill:#ffebe9,stroke:#cf222e,stroke-width:2px
-    style N fill:#f6f8fa,stroke:#656d76,stroke-width:2px
+    classDef clientStyle fill:#ddf4ff,stroke:#0969DA,stroke-width:2px,color:#1f2328
+    classDef frontendStyle fill:#fbefff,stroke:#8250df,stroke-width:2px,color:#1f2328
+    classDef backendStyle fill:#dafbe1,stroke:#1a7f37,stroke-width:2px,color:#1f2328
+    classDef aiStyle fill:#fff8c5,stroke:#fb8500,stroke-width:2px,color:#1f2328
+    classDef storageStyle fill:#eaeef2,stroke:#57606a,stroke-width:2px,color:#1f2328
+    classDef secretStyle fill:#ffebe9,stroke:#cf222e,stroke-width:2px,color:#1f2328
+    classDef monitorStyle fill:#f6f8fa,stroke:#656d76,stroke-width:2px,color:#1f2328
+
+    class A,B,C clientStyle
+    class D,E,F frontendStyle
+    class G,H,I backendStyle
+    class L aiStyle
+    class J,K storageStyle
+    class M secretStyle
+    class N monitorStyle
 ```
 
 ### Component Interaction Flow
@@ -527,6 +536,7 @@ const generationConfig = {
 ### 1. Wallpaper Generation Flow
 
 ```mermaid
+%%{init: {'theme':'base', 'themeVariables': {'primaryColor':'#ddf4ff','primaryTextColor':'#1f2328','primaryBorderColor':'#0969DA','lineColor':'#57606a','secondaryColor':'#fbefff','tertiaryColor':'#dafbe1','background':'#ffffff','mainBkg':'#f6f8fa','edgeLabelBackground':'#ffffff','nodeTextColor':'#1f2328'}}}%%
 flowchart TD
     A[User enters prompt] --> B{Network check}
     B -->|Offline| C[Show cached wallpapers]
@@ -551,15 +561,21 @@ flowchart TD
     S --> T[Cache in Service Worker]
     T --> U[User downloads to Photos]
 
-    style A fill:#ddf4ff,stroke:#0969DA,stroke-width:2px
-    style I fill:#fff8c5,stroke:#fb8500,stroke-width:2px
-    style O fill:#eaeef2,stroke:#57606a,stroke-width:2px
-    style U fill:#dafbe1,stroke:#1a7f37,stroke-width:2px
+    classDef inputStyle fill:#ddf4ff,stroke:#0969DA,stroke-width:2px,color:#1f2328
+    classDef aiStyle fill:#fff8c5,stroke:#fb8500,stroke-width:2px,color:#1f2328
+    classDef storageStyle fill:#eaeef2,stroke:#57606a,stroke-width:2px,color:#1f2328
+    classDef successStyle fill:#dafbe1,stroke:#1a7f37,stroke-width:2px,color:#1f2328
+
+    class A inputStyle
+    class I aiStyle
+    class O storageStyle
+    class U successStyle
 ```
 
 ### 2. Offline Mode Flow
 
 ```mermaid
+%%{init: {'theme':'base', 'themeVariables': {'primaryColor':'#ddf4ff','primaryTextColor':'#1f2328','primaryBorderColor':'#0969DA','lineColor':'#57606a','secondaryColor':'#fbefff','tertiaryColor':'#dafbe1','background':'#ffffff','mainBkg':'#f6f8fa','edgeLabelBackground':'#ffffff','nodeTextColor':'#1f2328'}}}%%
 flowchart TD
     A[PWA loads] --> B[Service Worker active?]
     B -->|No| C[Install Service Worker]
@@ -576,9 +592,13 @@ flowchart TD
     L -->|No| M[Show 'Connect to internet' message]
     L -->|Yes| N[Proceed with generation]
 
-    style C fill:#fbefff,stroke:#8250df,stroke-width:2px
-    style G fill:#dafbe1,stroke:#1a7f37,stroke-width:2px
-    style M fill:#ffebe9,stroke:#cf222e,stroke-width:2px
+    classDef installStyle fill:#fbefff,stroke:#8250df,stroke-width:2px,color:#1f2328
+    classDef successStyle fill:#dafbe1,stroke:#1a7f37,stroke-width:2px,color:#1f2328
+    classDef errorStyle fill:#ffebe9,stroke:#cf222e,stroke-width:2px,color:#1f2328
+
+    class C installStyle
+    class G successStyle
+    class M errorStyle
 ```
 
 ---
@@ -1023,6 +1043,7 @@ az deployment group create \
 ### Horizontal Scaling Plan
 
 ```mermaid
+%%{init: {'theme':'base', 'themeVariables': {'primaryColor':'#ddf4ff','primaryTextColor':'#1f2328','primaryBorderColor':'#0969DA','lineColor':'#57606a','secondaryColor':'#fbefff','tertiaryColor':'#dafbe1','background':'#ffffff','mainBkg':'#f6f8fa','secondBkg':'#ffffff','clusterBkg':'#f6f8fa','clusterBorder':'#d0d7de','edgeLabelBackground':'#ffffff','nodeTextColor':'#1f2328'}}}%%
 graph LR
     subgraph "0-100 Users - MVP"
         A1[Static Web Apps Free]
@@ -1056,6 +1077,16 @@ graph LR
     A1 --> B1
     B1 --> C1
     C1 --> D1
+
+    classDef mvpStyle fill:#ddf4ff,stroke:#0969DA,stroke-width:2px,color:#1f2328
+    classDef growthStyle fill:#dafbe1,stroke:#1a7f37,stroke-width:2px,color:#1f2328
+    classDef scaleStyle fill:#fff8c5,stroke:#fb8500,stroke-width:2px,color:#1f2328
+    classDef enterpriseStyle fill:#fbefff,stroke:#8250df,stroke-width:2px,color:#1f2328
+
+    class A1,A2,A3 mvpStyle
+    class B1,B2,B3,B4 growthStyle
+    class C1,C2,C3,C4,C5 scaleStyle
+    class D1,D2,D3,D4,D5 enterpriseStyle
 ```
 
 ### Performance Targets

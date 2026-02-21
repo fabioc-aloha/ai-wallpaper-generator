@@ -1,9 +1,9 @@
 # Marketing Plan - AI Wallpaper Generator
 
-**Project**: AlexWallpapers  
-**Target**: iPhone 16 Pro users seeking personalized AI wallpapers  
-**Timeline**: Phase 1 (MVP) → Phase 3 (Commercial Launch)  
-**Budget**: $0 (Phase 1) → $500/month (Phase 3)  
+**Project**: AlexWallpapers
+**Target**: iPhone 16 Pro users seeking personalized AI wallpapers
+**Timeline**: Phase 1 (MVP) → Phase 3 (Commercial Launch)
+**Budget**: $0 (Phase 1) → $500/month (Phase 3)
 **Date**: February 20, 2026
 
 ---
@@ -15,12 +15,12 @@
 **Unique Value Proposition (UVP)**:
 > "**Create stunning, one-of-a-kind iPhone wallpapers in seconds** — perfectly sized for Dynamic Island, powered by cutting-edge AI, no app download required."
 
-**Target Market**: 
+**Target Market**:
 - Primary: iPhone 16 Pro/Pro Max owners (early adopters, tech enthusiasts)
 - Secondary: iPhone users interested in personalization and AI tools
 - Market Size: ~100M iPhone 16 series devices (estimated 2026)
 
-**Go-to-Market Strategy**: 
+**Go-to-Market Strategy**:
 1. **Phase 1 (MVP)**: Personal use + organic social proof (Reddit, Twitter)
 2. **Phase 2**: Beta testing with 50-100 early adopters
 3. **Phase 3**: Commercial launch with freemium model ($0-$2.99/month)
@@ -39,7 +39,7 @@
 #### Persona 1: "The Customizer" (Primary - 40%)
 - **Demographics**: Ages 18-35, tech-savvy, early iPhone adopter
 - **Psychographics**: Values personalization, active on social media, follows tech trends
-- **Pain Points**: 
+- **Pain Points**:
   - Generic wallpapers feel impersonal
   - Finding perfect-sized wallpapers for Dynamic Island is hard
   - Existing AI tools too complex or desktop-only
@@ -49,7 +49,7 @@
 #### Persona 2: "The Creative" (Secondary - 30%)
 - **Demographics**: Ages 25-45, design-conscious, creative professionals
 - **Psychographics**: Appreciates aesthetics, willing to pay for quality tools
-- **Pain Points**: 
+- **Pain Points**:
   - Stock wallpapers lack artistic quality
   - MidJourney/DALL-E too expensive for casual use
   - Manual resizing destroys image quality
@@ -59,7 +59,7 @@
 #### Persona 3: "The AI Experimenter" (Tertiary - 30%)
 - **Demographics**: Ages 20-40, tech enthusiast, follows AI trends
 - **Psychographics**: Curious about AI capabilities, early adopter mindset
-- **Pain Points**: 
+- **Pain Points**:
   - Want to try AI tools without subscriptions
   - Existing tools require too much setup
 - **Motivations**: Explore AI capabilities, impress friends, stay current
@@ -93,12 +93,12 @@
      - r/ChatGPT, r/ArtificialIntelligence: Focus on AI capabilities
      - **Timing**: Tuesday-Thursday, 9-11am EST (peak engagement)
      - **Format**: Demo video/GIF + direct link + "Made with flux-1.1-pro"
-   
+
    - **Twitter/X**:
      - Tweet with demo video, tag @iPhone, #iPhone16Pro, #AIart
      - Engage with AI art community (@TheRundownAI, @AIExplained)
      - Share 3 wallpapers/week with prompts ("Here's what I generated:")
-   
+
    - **Product Hunt** (Week 4):
      - Launch as "free AI wallpaper generator for iPhone"
      - Prepare 5 demo wallpapers, video walkthrough
@@ -136,18 +136,18 @@
      - Target: iPhone users, AI art enthusiasts, ages 18-35
      - Ad copy: "Generate iPhone 16 Pro wallpapers in seconds with AI — free beta"
      - Run for 7 days, measure CTR and conversions
-   
+
 2. **Influencer Outreach** (Micro-influencers)
    - Identify 10 tech YouTubers/TikTokers (10K-100K followers)
    - Offer: Free unlimited access in exchange for review/mention
    - Focus on: iPhone reviewers, AI tool reviewers, productivity creators
    - Examples: @iJustine (reach out via email), smaller tech YouTubers
-   
+
 3. **Community Building**
    - Create r/AlexWallpapers subreddit
    - Discord server for beta testers (optional)
    - Email list: "Get early access + 100 free wallpapers"
-   
+
 4. **User-Generated Content Campaign**
    - Hashtag: #MyAIWallpaper
    - Contest: "Best wallpaper prompt wins 1 month free"
@@ -189,17 +189,17 @@
      - Target: iPhone users, ages 18-40, interests: photography, design, AI
      - Creative: Carousel ads showing wallpaper transformations
      - Budget: $7/day, optimize for conversions
-   
+
    - **Google Ads** (Search): $100/month
      - Keywords: "iPhone wallpaper AI", "custom iPhone background", "Dynamic Island wallpaper"
      - Landing page with free trial CTA
-   
+
 3. **Content Marketing** ($100/month — freelance writer)
    - 2 blog posts/month:
      - "50 Best AI Wallpaper Prompts for iPhone 16 Pro"
      - "How to Create Wallpapers That Complement Dynamic Island"
    - Guest posts on tech blogs (TechCrunch, The Verge — pitch as news)
-   
+
 4. **Partnership/Affiliate Program** ($100/month)
    - 20% commission for referrals
    - Reach out to:
@@ -253,7 +253,7 @@
 Title: [OC] I built a free AI wallpaper generator for iPhone 16 Pro
 
 Body:
-Hey r/iphone! I just finished building a web app that generates 
+Hey r/iphone! I just finished building a web app that generates
 AI wallpapers optimized for the iPhone 16 Pro's Dynamic Island.
 
 🎨 Uses Flux AI (same tech as professional AI artists)
@@ -261,13 +261,13 @@ AI wallpapers optimized for the iPhone 16 Pro's Dynamic Island.
 ⚡ Works right in Safari — no app download needed
 🆓 Free to use (I built it for myself, sharing with the community)
 
-Here are 5 wallpapers I generated with prompts like "neon cyberpunk 
+Here are 5 wallpapers I generated with prompts like "neon cyberpunk
 city" and "ethereal northern lights":
 [Imgur album]
 
 Try it: [link]
 
-Built with SvelteKit + Azure Functions + Replicate AI. Open to 
+Built with SvelteKit + Azure Functions + Replicate AI. Open to
 feedback — this is my first PWA project!
 ```
 
@@ -513,8 +513,8 @@ Visual: iPhone 16 Pro mockup with rotating AI wallpapers
 | **Phase 2 (Beta)** | 4 weeks | $50 | $2.61/month | $55 | Validation |
 | **Phase 3 (Launch)** | Month 3+ | $500/month | $250/month | $750/month | $1,500 MRR (2x ROI) |
 
-**Total First 3 Months**: ~$1,260  
-**Expected Revenue (Month 3)**: $1,500  
+**Total First 3 Months**: ~$1,260
+**Expected Revenue (Month 3)**: $1,500
 **Break-Even**: Month 3
 
 ---
@@ -633,7 +633,7 @@ Week 9+ (Commercial):
 
 ---
 
-**Last Updated**: February 20, 2026  
-**Owner**: Alex (Marketing Lead)  
-**Review Cycle**: Monthly  
+**Last Updated**: February 20, 2026
+**Owner**: Alex (Marketing Lead)
+**Review Cycle**: Monthly
 **Next Review**: March 20, 2026
