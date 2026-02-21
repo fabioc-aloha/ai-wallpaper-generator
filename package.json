@@ -7,7 +7,8 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "banner": "node generate-banner.js"
   },
   "repository": {
     "type": "git",
@@ -16,12 +17,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/fabioc-aloha/ai-wallpaper-generator/issues"
   },
   "homepage": "https://github.com/fabioc-aloha/ai-wallpaper-generator#readme",
   "dependencies": {
-    "replicate": "^1.4.0"
+    "replicate": "^1.4.0",
+    "fs-extra": "^11.2.0"
   }
 }

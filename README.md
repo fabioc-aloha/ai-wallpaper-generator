@@ -1,7 +1,7 @@
 # AI Wallpaper Generator for iPhone
 
 <p align="center">
-  <img src="assets/banner.svg" alt="AI Wallpaper Generator Banner" width="100%"/>
+  <img src="assets/banner.png" alt="AI Wallpaper Generator" width="100%"/>
 </p>
 
 <p align="center">
