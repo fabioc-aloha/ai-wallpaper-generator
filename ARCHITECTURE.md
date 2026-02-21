@@ -60,13 +60,13 @@ graph TB
     end
 
     subgraph "Storage Layer"
-        J[Azure Blob Storage<br/>Hot Tier]
-        K[Azure Table Storage<br/>Optional Phase 2]
+        J[Azure Blob Storage - Hot Tier]
+        K[Azure Table Storage - Optional Phase 2]
     end
 
     subgraph "External Services"
-        L[Replicate AI API<br/>flux-1.1-pro]
-        M[Azure Key Vault<br/>Secrets Management]
+        L[Replicate AI API - flux-1.1-pro]
+        M[Azure Key Vault - Secrets Management]
     end
 
     subgraph "Monitoring"
@@ -114,11 +114,11 @@ sequenceDiagram
     U->>P: Enter prompt & click Generate
     P->>SW: Check offline status
     SW-->>P: Online confirmed
-    P->>AF: POST /api/generate<br/>{prompt, style, resolution}
+    P->>AF: POST /api/generate {prompt, style, resolution}
     AF->>AI: Log request start
     AF->>KV: Get Replicate API key
     KV-->>AF: Return secret
-    AF->>R: POST create prediction<br/>{prompt, model, size}
+    AF->>R: POST create prediction {prompt, model, size}
     R-->>AF: prediction_id + status
 
     loop Poll for completion
@@ -530,7 +530,7 @@ const generationConfig = {
 flowchart TD
     A[User enters prompt] --> B{Network check}
     B -->|Offline| C[Show cached wallpapers]
-    B -->|Online| D[Validate input<br/>Zod schema]
+    B -->|Online| D[Validate input - Zod schema]
     D -->|Invalid| E[Show error message]
     D -->|Valid| F[Call POST /api/generate]
     F --> G[Azure Function triggered]
@@ -538,7 +538,7 @@ flowchart TD
     H --> I[Call Replicate API]
     I --> J{Prediction created?}
     J -->|No| K[Log error + notify user]
-    J -->|Yes| L[Poll for completion<br/>Every 2 seconds]
+    J -->|Yes| L[Poll for completion - Every 2 seconds]
     L --> M{Status?}
     M -->|Processing| L
     M -->|Failed| K
