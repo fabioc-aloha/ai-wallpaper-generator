@@ -50,14 +50,14 @@
 
 | Phase | Users | Wallpapers/Month | Monthly Cost |
 |-------|-------|------------------|--------------|
-| MVP | 1 | 200 | $1.14 |
+| MVP | 1 | 200 | $1.02 |
 | Enhanced | 1 | 500 | $2.61 |
 | Commercial | 100 | 5,000 | $242.65 |
 
 **Breakdown (MVP)**:
 - Replicate API: $0.90
 - Azure Storage: $0.02
-- Azure Functions: $0.20
+- Azure Functions: $0.08
 - Key Vault: $0.02
 - Static Web Apps: Free
 - Application Insights: Free tier
@@ -211,7 +211,7 @@ Follow [docs/DEPLOYMENT-GUIDE.md](docs/DEPLOYMENT-GUIDE.md):
 
 ### Business
 - Personal use: 200 wallpapers/month
-- Cost: < $1.50/month
+- Cost: < $1.10/month
 - User satisfaction: Self (initially)
 - Future: 100 users @ $2.99/month → $242 revenue
 
@@ -222,8 +222,8 @@ Follow [docs/DEPLOYMENT-GUIDE.md](docs/DEPLOYMENT-GUIDE.md):
 | Phase | Duration | Deliverable | Cost/Month |
 |-------|----------|-------------|------------|
 | **Planning** | 1 week | Documentation complete ✅ | $0 |
-| **MVP Development** | 3-4 weeks | Functional PWA | $1.14 |
-| **Testing & Launch** | 1 week | Production deployment | $1.14 |
+| **MVP Development** | 3-4 weeks | Functional PWA | $1.02 |
+| **Testing & Launch** | 1 week | Production deployment | $1.02 |
 | **Enhanced Features** | 4 weeks | User accounts, styles | $2.61 |
 | **Commercialization** | 8 weeks | Payment, scaling | $242.65 |
 

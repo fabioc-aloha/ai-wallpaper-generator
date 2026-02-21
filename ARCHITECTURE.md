@@ -12,7 +12,7 @@
 A mobile-first Progressive Web App for generating high-quality AI wallpapers optimized for iPhone devices. The system leverages Azure's serverless architecture and Replicate AI's image generation models to deliver a cost-effective, scalable solution for personal use with a clear path to commercialization.
 
 **Key Metrics**:
-- **Target MVP Cost**: ~$1.12/month (personal use, 200 wallpapers/month)
+- **Target MVP Cost**: ~$1.02/month (personal use, 200 wallpapers/month)
 - **Expected Response Time**: 15-25 seconds per wallpaper
 - **Target Device**: iPhone 16 Pro (iOS 26.4 beta)
 - **Deployment Model**: Serverless (Azure Static Web Apps + Functions)
@@ -954,13 +954,13 @@ az deployment group create \
 | Service | Tier/SKU | Usage | Unit Cost | **Monthly Cost** |
 |---------|----------|-------|-----------|------------------|
 | **Azure Static Web Apps** | Free | 100 GB bandwidth | Free | **$0.00** |
-| **Azure Functions (FC1)** | Flex Consumption | 500 executions × 25 sec avg | $0.000016/sec | **$0.20** |
+| **Azure Functions (FC1)** | Flex Consumption | 200 executions × 25 sec avg | $0.000016/sec | **$0.08** |
 | **Replicate AI** | Pay-per-use | 200 generations × 20 sec avg × $0.000225/sec | - | **$0.90** |
 | **Azure Blob Storage** | Hot LRS | 800 MB storage + 200 uploads | $0.0184/GB + $0.05/10k ops | **$0.02** |
 | **Azure Key Vault** | Standard | ~500 operations | $0.03/10k ops | **$0.02** |
 | **Application Insights** | Pay-as-you-go | ~200 MB telemetry | First 5 GB free | **$0.00** |
 | **Bandwidth** | - | ~800 MB downloads | Included in SWA | **$0.00** |
-| **Total MVP** | - | - | - | **$1.14/month** |
+| **Total MVP** | - | - | - | **$1.02/month** |
 
 ---
 

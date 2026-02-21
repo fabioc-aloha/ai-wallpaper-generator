@@ -3,7 +3,9 @@
 **Project**: iPhone AI Wallpaper Generator
 **Target Device**: iPhone 16 Pro (iOS 26.4 beta)
 **Start Date**: February 20, 2026
-**Estimated MVP Completion**: 3-4 weeks
+**Estimated MVP Completion**: 3-4 weeks (4-5 weeks if first PWA project)
+
+**Note**: Timeline assumes 15-20 hours/week commitment and TypeScript/JavaScript experience. First-time PWA developers should add 1-2 weeks for learning curve.
 
 ---
 
@@ -76,7 +78,7 @@ gantt
 
 **Goal**: Generate AI wallpapers on your iPhone 16 Pro
 **Success Criteria**: Create 10 wallpapers successfully
-**Budget**: ~$1.12/month
+**Budget**: ~$1.02/month
 
 ### Week 1: Foundation (Days 1-7)
 
@@ -500,7 +502,7 @@ Quality:
 
 | Phase | Duration | Monthly Cost | One-Time Costs | Notes |
 |-------|----------|--------------|----------------|-------|
-| **Phase 1** | 3-4 weeks | $1.12 | $0 | Personal use only |
+| **Phase 1** | 3-4 weeks | $1.02 | $0 | Personal use only |
 | **Phase 2** | 4 weeks | $2.61 | $0 | More features, more usage |
 | **Phase 3 (Testing)** | 8 weeks | $50-100 | $99 (Apple Developer) | Beta testing with real users |
 | **Phase 3 (Launch)** | Ongoing | $200-300 | Stripe fees (2.9% + $0.30) | Need 82 paying users to break even |
