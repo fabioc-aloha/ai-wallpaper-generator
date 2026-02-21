@@ -1,0 +1,23 @@
+{
+  "name": "wallpaper-api",
+  "version": "0.1.0",
+  "description": "Azure Functions API for AI wallpaper generation",
+  "type": "module",
+  "scripts": {
+    "start": "func start",
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "dependencies": {
+    "@azure/functions": "^4.5.0",
+    "@azure/identity": "^4.0.1",
+    "@azure/keyvault-secrets": "^4.8.0",
+    "@azure/storage-blob": "^12.17.0",
+    "replicate": "^0.25.2",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "typescript": "^5.3.3"
+  }
+}

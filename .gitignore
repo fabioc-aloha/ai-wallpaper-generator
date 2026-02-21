@@ -15,6 +15,9 @@ dist/
 build/
 .next/
 out/
+frontend/build/
+frontend/.svelte-kit/
+api/dist/
 
 # Environment variables
 .env
@@ -23,6 +26,8 @@ out/
 .env.test.local
 .env.production.local
 *.env
+!frontend/.env.development
+!frontend/.env.production
 
 # IDE
 .vscode/*
