@@ -1,8 +1,23 @@
 # AI Wallpaper Generator for iPhone
 
-> **Personal AI-powered wallpaper creation app optimized for iPhone 16 Pro**
+<p align="center">
+  <img src="assets/banner.svg" alt="AI Wallpaper Generator Banner" width="100%"/>
+</p>
 
-Generate stunning, unique wallpapers using state-of-the-art AI models. Built as a Progressive Web App (PWA) with Azure serverless architecture.
+<p align="center">
+  <strong>Personal AI-powered wallpaper creation app optimized for iPhone 16 Pro</strong>
+</p>
+
+<p align="center">
+  Generate stunning, unique wallpapers using state-of-the-art AI models.<br/>
+  Built as a Progressive Web App (PWA) with Azure serverless architecture.
+</p>
+
+<p align="center">
+  <a href="https://github.com/fabioc-aloha/ai-wallpaper-generator/stargazers"><img src="https://img.shields.io/github/stars/fabioc-aloha/ai-wallpaper-generator?style=for-the-badge&logo=github&color=0078d4" alt="GitHub Stars"/></a>
+  <a href="https://github.com/fabioc-aloha/ai-wallpaper-generator/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-8250df?style=for-the-badge" alt="License"/></a>
+  <a href="https://github.com/fabioc-aloha/ai-wallpaper-generator/issues"><img src="https://img.shields.io/github/issues/fabioc-aloha/ai-wallpaper-generator?style=for-the-badge&logo=github&color=1a7f37" alt="GitHub Issues"/></a>
+</p>
 
 ---
 
@@ -67,7 +82,7 @@ Follow [docs/AZURE-SETUP.md](docs/AZURE-SETUP.md) to deploy:
 - Static Web App
 - Budget alerts
 
-**Time**: ~2-3 hours  
+**Time**: ~2-3 hours
 **Cost**: Free tier for MVP
 
 ### 3. Develop
@@ -279,8 +294,8 @@ If commercializing, consider:
 
 ---
 
-**Project Version**: 0.1.0 (Planning Phase)  
-**Last Updated**: February 20, 2026  
+**Project Version**: 0.1.0 (Planning Phase)
+**Last Updated**: February 20, 2026
 **Status**: 📋 Ready for development
 
 ---

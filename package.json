@@ -1,0 +1,27 @@
+{
+  "name": "alexwallpapers",
+  "version": "1.0.0",
+  "description": "> **Personal AI-powered wallpaper creation app optimized for iPhone 16 Pro**",
+  "main": "generate-banner.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabioc-aloha/ai-wallpaper-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/fabioc-aloha/ai-wallpaper-generator/issues"
+  },
+  "homepage": "https://github.com/fabioc-aloha/ai-wallpaper-generator#readme",
+  "dependencies": {
+    "replicate": "^1.4.0"
+  }
+}
