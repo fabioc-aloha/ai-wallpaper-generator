@@ -153,40 +153,78 @@ Follow [docs/DEPLOYMENT-GUIDE.md](docs/DEPLOYMENT-GUIDE.md):
 
 ## 📐 Architecture Highlights
 
+```mermaid
+graph TB
+    subgraph "Client Layer"
+        A[iPhone 16 Pro<br/>Safari PWA<br/>1179×2556]
+        B[Service Worker]
+        C[LocalStorage]
+    end
+
+    subgraph "Azure Cloud"
+        subgraph "Frontend"
+            D[Static Web Apps<br/>SvelteKit/React<br/>Free Tier]
+        end
+        
+        subgraph "Backend"
+            E[Azure Functions<br/>Flex Consumption FC1<br/>Node.js 20]
+        end
+        
+        subgraph "Storage & Secrets"
+            F[Blob Storage<br/>Hot Tier<br/>Generated Images]
+            G[Key Vault<br/>API Keys]
+        end
+        
+        subgraph "Monitoring"
+            H[Application Insights<br/>Telemetry]
+        end
+    end
+    
+    subgraph "External AI"
+        I[Replicate API<br/>flux-1.1-pro<br/>$0.000225/sec]
+    end
+
+    A -->|HTTPS| D
+    A <-->|Cache| B
+    B <-->|Persist| C
+    D -->|API /api/generate| E
+    E -->|Get Secret| G
+    E -->|Generate Image| I
+    I -->|Image URL| E
+    E -->|Upload| F
+    F -->|CDN URL| E
+    E -->|Response| D
+    D -->|Display| A
+    E -.->|Logs| H
+
+    style A fill:#ddf4ff,stroke:#0969DA,stroke-width:2px
+    style D fill:#fbefff,stroke:#8250df,stroke-width:2px
+    style E fill:#dafbe1,stroke:#1a7f37,stroke-width:2px
+    style I fill:#fff8c5,stroke:#fb8500,stroke-width:2px
+    style F fill:#eaeef2,stroke:#57606a,stroke-width:2px
+    style G fill:#ffebe9,stroke:#cf222e,stroke-width:2px
+    style H fill:#f6f8fa,stroke:#656d76,stroke-width:2px
 ```
-┌─────────────────┐
-│  iPhone 16 Pro  │
-│   (1179×2556)   │
-└────────┬────────┘
-         │ HTTPS
-         ▼
-┌─────────────────────────────────┐
-│  Azure Static Web Apps          │
-│  ┌──────────────────────────┐   │
-│  │  SvelteKit PWA           │   │
-│  │  - Service Worker        │   │
-│  │  - Offline Mode          │   │
-│  │  - Safe Area Insets      │   │
-│  └──────────────────────────┘   │
-└─────────────┬───────────────────┘
-              │ API Calls
-              ▼
-┌─────────────────────────────────┐
-│  Azure Functions (FC1)          │
-│  ┌──────────────────────────┐   │
-│  │  generateWallpaper()     │   │
-│  │  - Replicate API         │   │
-│  │  - Key Vault auth        │   │
-│  │  - Blob upload           │   │
-│  └──────────────────────────┘   │
-└─────────────┬───────────────────┘
-              │
-       ┌──────┴──────┬──────────┐
-       ▼             ▼          ▼
-  ┌─────────┐  ┌─────────┐  ┌──────────┐
-  │ Blob    │  │ Key     │  │ App      │
-  │ Storage │  │ Vault   │  │ Insights │
-  └─────────┘  └─────────┘  └──────────┘
+
+### User Journey
+
+```mermaid
+flowchart LR
+    A[Open PWA<br/>on iPhone] --> B{Online?}
+    B -->|Yes| C[Enter Prompt<br/>e.g. 'neon city']
+    B -->|No| D[View Cached<br/>Wallpapers]
+    C --> E[Click Generate]
+    E --> F[AI Processing<br/>15-25 seconds]
+    F --> G[Preview<br/>Wallpaper]
+    G --> H[Download to<br/>Photos App]
+    H --> I[Set as<br/>Wallpaper]
+    D --> J[Select<br/>Cached Image]
+    J --> I
+    
+    style A fill:#ddf4ff,stroke:#0969DA,stroke-width:2px
+    style C fill:#fbefff,stroke:#8250df,stroke-width:2px
+    style F fill:#fff8c5,stroke:#fb8500,stroke-width:2px
+    style I fill:#dafbe1,stroke:#1a7f37,stroke-width:2px
 ```
 
 ---
@@ -228,6 +266,31 @@ Follow [docs/DEPLOYMENT-GUIDE.md](docs/DEPLOYMENT-GUIDE.md):
 | **Commercialization** | 8 weeks | Payment, scaling | $242.65 |
 
 **Total to MVP**: ~4-5 weeks (110 hours)
+
+### Development Phases
+
+```mermaid
+gantt
+    title AI Wallpaper Generator - Development Timeline
+    dateFormat  YYYY-MM-DD
+    
+    section Phase 1: MVP
+    Planning & Decisions           :done, plan, 2026-02-20, 2d
+    Azure Infrastructure Setup     :active, azure, 2026-02-22, 3d
+    Frontend Development           :front, 2026-02-25, 7d
+    Backend API & AI Integration   :back, 2026-02-27, 7d
+    PWA & Offline Features         :pwa, 2026-03-05, 4d
+    Testing & Deployment           :test, 2026-03-09, 3d
+    MVP Launch                     :milestone, mvp, 2026-03-12, 0d
+    
+    section Phase 2: Enhanced
+    Style Templates & UI Polish    :style, 2026-03-13, 7d
+    User Accounts & Cloud Sync     :accounts, 2026-03-20, 7d
+    
+    section Phase 3: Commercial
+    Payment Integration            :payment, 2026-03-27, 10d
+    Marketing & Launch             :marketing, 2026-04-06, 10d
+```
 
 ---
 
